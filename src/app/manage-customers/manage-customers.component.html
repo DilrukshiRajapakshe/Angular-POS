@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Manage Customer</h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="txtCustomerID">CID</label>
+      <input #txtCustomerID type="text" class="form-control" id="txtCustomerID" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="txtCustomerName">Customer Name</label>
+      <input #txtCustomerName type="text" class="form-control" id="txtCustomerName" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="txtCustomerAddress">Customer Address</label>
+      <input #txtCustomerAddress type="text" class="form-control" id="txtCustomerAddress" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="txtCustomerSalary">Customer Salary</label>
+      <input #txtCustomerSalary type="text" class="form-control" id="txtCustomerSalary" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <button (click)="saveCustomer(txtCustomerID.value,txtCustomerName.value,txtCustomerAddress.value,txtCustomerSalary.value)" type="submit" class="btn btn-primary">Save</button>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Adderss</th>
+        <th>Salary</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.id}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.address}}</td>
+        <td>{{customer.salary}}</td>
+        <td><button (click)="deleteCustomer(customer)" class="btn btn-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
